@@ -1,0 +1,146 @@
+/* ===== NEON TIC-TAC-TOE STYLE ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top, #0a0a0a 60%, #000 100%);
+  font-family: 'Orbitron', sans-serif;
+  color: #00fff7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  text-align: center;
+  flex-grow: 1;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 3rem;
+  text-shadow: 0 0 15px #00fff7, 0 0 30px #00fff7, 0 0 45px #00fff7;
+  animation: titleGlow 2s infinite alternate;
+}
+
+.neon-accent {
+  color: #ff00ff;
+  text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+  }
+  to {
+    text-shadow: 0 0 30px #00fff7, 0 0 60px #00fff7, 0 0 90px #00fff7;
+  }
+}
+
+/* Buttons */
+.neon-button {
+  background: transparent;
+  border: 2px solid #00fff7;
+  color: #00fff7;
+  font-size: 1.2rem;
+  padding: 12px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00fff7;
+  box-shadow: 0 0 15px #00fff7;
+}
+
+.neon-button:hover {
+  background: #00fff7;
+  color: #0a0a0a;
+  box-shadow: 0 0 25px #00fff7, 0 0 50px #00fff7, 0 0 75px #00fff7;
+}
+
+/* Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 15px;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.cell {
+  border: 2px solid #00fff7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #00fff7;
+  text-shadow: 0 0 15px #00fff7;
+  border-radius: 10px;
+}
+
+.cell:hover {
+  box-shadow: 0 0 25px #00fff7, inset 0 0 10px #00fff7;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Winning Message */
+#winning-message {
+  font-size: 1.8rem;
+  color: #ff00ff;
+  text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+  }
+  to {
+    text-shadow: 0 0 35px #ff00ff, 0 0 70px #ff00ff;
+  }
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid #00fff7;
+  background: rgba(0, 255, 247, 0.05);
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff7;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px #00fff7 inset;
+}
+
+.footer .author {
+  color: #ff00ff;
+  text-shadow: 0 0 15px #ff00ff;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .board {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+}
